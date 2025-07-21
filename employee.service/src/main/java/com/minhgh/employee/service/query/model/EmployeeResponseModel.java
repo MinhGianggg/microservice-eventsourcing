@@ -1,10 +1,10 @@
 package com.minhgh.employee.service.query.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
+import lombok.*;
 
 @Builder
 @AllArgsConstructor
+@Getter
 public class EmployeeResponseModel {
     private String id;
     private String firstName;

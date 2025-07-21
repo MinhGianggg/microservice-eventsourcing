@@ -22,9 +22,6 @@ public class EmployeeQueryController {
     @GetMapping
     public List<EmployeeResponseModel> getAllEmployee(
             @RequestParam(required = false, defaultValue = "false") Boolean isDisciplined) {
-
-        log.info("get all controller: {}", isDisciplined);
-
         var response = queryGateway.query(
                         new GetAllEmployeeQuery(isDisciplined),
                         ResponseTypes.multipleInstancesOf(EmployeeResponseModel.class))
