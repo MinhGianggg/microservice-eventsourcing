@@ -9,6 +9,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="discoveryserver" />
         <module name="common-service" />
+        <module name="api.gateway" />
       </profile>
       <profile name="Annotation profile for employee.service" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
@@ -24,6 +25,7 @@
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="api.gateway" options="-parameters" />
       <module name="bookservice" options="-parameters" />
       <module name="common-service" options="-parameters" />
       <module name="discoveryserver" options="-parameters" />

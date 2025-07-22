@@ -15,7 +15,7 @@ import java.util.UUID;
 @RestController
 @RequestMapping("/api/v1/employees")
 @RequiredArgsConstructor
-public class EmployeeController {
+public class EmployeeCommandController {
 
     private final CommandGateway commandGateway;
 
