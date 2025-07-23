@@ -1,8 +1,13 @@
-#spring:
-#  cloud:
-#    gateway:
-#      routes:
-#        - id: employee-service
-#          uri: http://localhost:9002
-#          predicates:
-#            - Path=/api/v1/employees/**
+spring:
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+      routes:
+        - id: employee-service
+          uri: lb://employee-service
+          predicates:
+            - Path=/api/v1/employees/**
+  main:
+    web-application-type: reactive
