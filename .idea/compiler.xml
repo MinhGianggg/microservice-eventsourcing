@@ -11,15 +11,6 @@
         <module name="common-service" />
         <module name="api.gateway" />
       </profile>
-      <profile name="Annotation profile for notification-service" enabled="true">
-        <sourceOutputDir name="target/generated-sources/annotations" />
-        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
-        <outputRelativeToContentRoot value="true" />
-        <processorPath useClasspath="false">
-          <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/unknown/lombok-unknown.jar" />
-        </processorPath>
-        <module name="notification-service" />
-      </profile>
       <profile name="Annotation profile for employee.service" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
@@ -30,12 +21,23 @@
         <module name="bookservice" />
         <module name="employee.service" />
       </profile>
+      <profile name="Annotation profile for notification-service" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="false">
+          <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/unknown/lombok-unknown.jar" />
+        </processorPath>
+        <module name="borrowing-service" />
+        <module name="notification-service" />
+      </profile>
     </annotationProcessing>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="api.gateway" options="-parameters" />
       <module name="bookservice" options="-parameters" />
+      <module name="borrowing-service" options="-parameters" />
       <module name="common-service" options="-parameters" />
       <module name="discoveryserver" options="-parameters" />
       <module name="employee.service" options="-parameters" />
