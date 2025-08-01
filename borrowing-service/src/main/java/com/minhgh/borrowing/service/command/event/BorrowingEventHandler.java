@@ -25,4 +25,11 @@ public class BorrowingEventHandler {
 
         borrowingRepository.save(model);
     }
+
+    @EventHandler
+    public void on(BorrowingDeletedEvent event) {
+        var model = borrowingRepository.findById(event.getId()).orElseThrow();
+
+        borrowingRepository.delete(model);
+    }
 }

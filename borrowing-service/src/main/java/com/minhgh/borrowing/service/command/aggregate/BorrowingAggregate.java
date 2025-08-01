@@ -1,7 +1,9 @@
 package com.minhgh.borrowing.service.command.aggregate;
 
 import com.minhgh.borrowing.service.command.command.CreateBorrowingCommand;
+import com.minhgh.borrowing.service.command.command.DeleteBorrowingCommand;
 import com.minhgh.borrowing.service.command.event.BorrowingCreatedEvent;
+import com.minhgh.borrowing.service.command.event.BorrowingDeletedEvent;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -49,5 +51,16 @@ public class BorrowingAggregate {
         this.employeeId = event.getEmployeeId();
         this.borrowingDate = event.getBorrowingDate();
         this.returningDate = event.getReturningDate();
+    }
+
+    @CommandHandler
+    public void handle(DeleteBorrowingCommand command) {
+        var event = new BorrowingDeletedEvent(command.getId());
+        AggregateLifecycle.apply(event);
+    }
+
+    @EventSourcingHandler
+    public void on(BorrowingDeletedEvent event) {
+        this.id = event.getId();
     }
 }
